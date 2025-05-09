@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Phan Nghĩa Nhân</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    #map {
+      height: 500px;
+    }
+  </style>
+</head>
+<body>
+  <h3>Bản đồ: Tượng đài Cà Mau</h3>
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    var map = L.map('map').setView([9.17619607770133, 105.1508474612119], 17);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+ 
+    var circle = L.circle([9.17619607770133, 105.1508474612119], {
+      color: 'red',          
+      fillColor: 'blue',       
+      fillOpacity: 0.3,        
+      radius: 120               
+    }).addTo(map).bindPopup('Vòng tròn 120m quanh tượng đài').openPopup();
+    var marker = L.marker([9.17619607770133, 105.1508474612119]).addTo(map).bindPopup('Tượng đài Cà Mau').openPopup();
+    marker.bindTooltip('Tượng đài Cà Mau').openTooltip();
+    
+  </script>
+</body>
+</html>
